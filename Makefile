@@ -18,3 +18,6 @@ deps: deps--cue4parse
 
 deps--cue4parse:
 	dotnet build ./CUE4Parse/CUE4Parse/CUE4Parse.csproj
+
+publish: setup deps
+	dotnet publish ./src/AssetHttp.csproj
