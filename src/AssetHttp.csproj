@@ -16,4 +16,10 @@
 		<PackageReference Include="SkiaSharp" Version="2.88.8" />
 		<PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.8" />
 	</ItemGroup>
+	<Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+		<Copy SourceFiles="./oo2core_9_win64.dll" DestinationFolder="$(OutDir)" />
+	</Target>
+	<Target Name="CopyCustomContentOnPublish" AfterTargets="Publish">
+		<Copy SourceFiles="./oo2core_9_win64.dll" DestinationFolder="$(PublishDir)" />
+	</Target>
 </Project>

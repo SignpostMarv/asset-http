@@ -1,3 +1,4 @@
+using CUE4Parse.Compression;
 using CUE4Parse.Encryption.Aes;
 using CUE4Parse.FileProvider;
 using CUE4Parse.MappingsProvider;
@@ -26,7 +27,10 @@ class Satisfactory
 	{
 		get
 		{
-			return File.Exists($"{this.directory}/FactoryGame.exe");
+			return (
+				File.Exists($"{this.directory}/FactoryGame.exe")
+				|| File.Exists($"{this.directory}/FactoryGameSteam.exe")
+			);
 		}
 	}
 
@@ -43,6 +47,8 @@ class Satisfactory
 		get
 		{
 			if (null == _provider) {
+				string oodle_dll_path = Path.Combine("./", OodleHelper.OODLE_DLL_NAME);
+				OodleHelper.Initialize(Path.GetFullPath(oodle_dll_path));
 				_provider = new DefaultFileProvider(
 					$"{this.directory}/FactoryGame/Content/Paks",
 					SearchOption.AllDirectories,
