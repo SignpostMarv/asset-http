@@ -23,6 +23,7 @@ class AssetHttp
 			new Games.Satisfactory("1.0.0.7", EGame.GAME_UE5_3),
 			new Games.Satisfactory("1.0.1.0", EGame.GAME_UE5_3),
 			new Games.Satisfactory("1.0.1.1", EGame.GAME_UE5_3),
+			new Games.Satisfactory("1.0.1.2", EGame.GAME_UE5_3),
 		};
 
 		foreach (Games.Satisfactory version in versions)
