@@ -15,11 +15,14 @@
 	<ItemGroup>
 		<PackageReference Include="SkiaSharp" Version="2.88.8" />
 		<PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.8" />
+		<PackageReference Include="JsonSchema.Net" Version="7.3.0" />
 	</ItemGroup>
 	<Target Name="CopyCustomContent" AfterTargets="AfterBuild">
 		<Copy SourceFiles="./oo2core_9_win64.dll" DestinationFolder="$(OutDir)" />
+		<Copy SourceFiles="./satisfactory.json" DestinationFolder="$(OutDir)" />
 	</Target>
 	<Target Name="CopyCustomContentOnPublish" AfterTargets="Publish">
 		<Copy SourceFiles="./oo2core_9_win64.dll" DestinationFolder="$(PublishDir)" />
+		<Copy SourceFiles="./satisfactory.json" DestinationFolder="$(PublishDir)" />
 	</Target>
 </Project>
